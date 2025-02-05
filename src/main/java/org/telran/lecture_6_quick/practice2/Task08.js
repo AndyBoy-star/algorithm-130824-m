@@ -1,4 +1,3 @@
-package org.telran.lecture_6_quick.practice2;
 
 // "Камни"
 // Имеется N камней веса А1,А2,...,АN.
@@ -8,8 +7,28 @@ package org.telran.lecture_6_quick.practice2;
 // Вход: массив целых чисел - веса камней
 // Выход: два числа - вес первой и второй куч. Или сообщение "Разбить на две кучи нельзя"
 
-public class Task08 {
-    public static void main(String[] args) {
+const stones = [3, 8, 5, 1, 6];
 
+function splitStones(stones) {
+    stones.sort((a, b) => b - a);
+
+    let heap1 = 0; 
+    let heap2 = 0; 
+
+    for (let stone of stones) {
+        if (heap1 <= heap2) {
+            heap1 += stone;
+        } else {
+            heap2 += stone;
+        }
+    }
+
+    if (heap1 <= 2 * heap2 && heap2 <= 2 * heap1) {
+        return [heap1, heap2];
+    } else {
+        return "Разбить на две кучи нельзя";
     }
 }
+
+const result = splitStones(stones);
+console.log("Результат:", result);

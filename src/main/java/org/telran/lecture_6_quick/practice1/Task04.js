@@ -1,4 +1,4 @@
-package org.telran.lecture_6_quick.practice1;
+
 
 // "Рекламная акция"
 // В сети магазинов "Н-Аудио" проводится рекламная акция. Каждый второй товар – бесплатно.
@@ -16,9 +16,16 @@ package org.telran.lecture_6_quick.practice1;
 // Пояснение:
     // Возможен такой порядок: 10 2 50 1 10
 
-public class Task04 {
-    public static void main(String[] args) {
-        int[] prices = {2, 1, 10, 50, 10}; // Цены товаров
-//        ...
+const prices = [2, 1, 10, 50, 10];
+
+prices.sort((a, b) => b - a);
+
+let maxSum = 0;
+
+for (let i = 0; i < prices.length; i++) {
+    if (i % 2 === 0) {
+        maxSum += prices[i];
     }
 }
+
+console.log("Максимальная сумма чека:", maxSum);

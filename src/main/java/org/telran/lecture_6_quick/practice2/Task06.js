@@ -1,4 +1,3 @@
-package org.telran.lecture_6_quick.practice2;
 
 // "Призеры олимпиады"
 // По результатам олимпиады участники награждаются дипломами.
@@ -14,9 +13,14 @@ package org.telran.lecture_6_quick.practice2;
 // Выход
 // 5
 
-public class Task06 {
-    public static void main(String[] args) {
-        Integer[] arr = {1, 3, 4, 3, 5, 6, 7, 7, 6, 1};
+const scores = [1, 3, 4, 3, 5, 6, 7, 7, 6, 1];
 
-    }
-}
+scores.sort((a, b) => b - a);
+
+const uniqueScores = [...new Set(scores)];
+
+const topScores = uniqueScores.slice(0, 3);
+
+const numPrizeWinners = scores.filter(score => topScores.includes(score)).length;
+
+console.log("Количество призеров:", numPrizeWinners);

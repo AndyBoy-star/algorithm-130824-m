@@ -1,5 +1,4 @@
-package org.telran.lecture_6_quick.practice1;
-import java.util.Scanner;
+
 
 // "Сумма наибольших"
 // Дан массив произвольных целых чисел
@@ -7,10 +6,10 @@ import java.util.Scanner;
 // Примечание: Используйте алгоритм сортировки, если нужно.
 
 
-public class Task02 {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int[] numbers = {2, 4, -8, -5, 0, 7, 12, 0, -4, 10};
-//        ...
-    }
-}
+const numbers = [2, 4, -8, -5, 0, 7, 12, 0, -4, 10];
+
+numbers.sort((a, b) => b - a);
+
+const top5Sum = numbers.slice(0, 5).reduce((sum, num) => sum + num, 0);
+
+console.log("Сумма 5-ти самых больших элементов:", top5Sum);
